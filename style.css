@@ -1,0 +1,274 @@
+
+
+
+
+.card_banner {
+  position: relative;
+  width: 500px; /* update */
+  height: 500px; /* update */
+  background-color: #484f4b65;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card_banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -5px;
+  margin: auto;
+  width: 100%; /* update */
+  height: 100%; /*update  */
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card_banner::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.card_banner:hover::after {
+  filter: blur(30px);
+}
+
+.card_banner:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+
+
+/* --------banner end------- */
+
+.card_service {
+  position: relative;
+  width: 220px;
+  height: 320px;
+  background: mediumturquoise;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.card_service::before,
+.card_service::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: lightblue;
+  transition: all 0.5s;
+}
+
+.card_service::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+
+.card_service::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100%  0 15px;
+}
+
+.card_service:hover::before,
+.card_service:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+
+.card_service:hover:after {
+  content: "Thank You";
+}
+
+/* -----service end-------- */
+
+
+.about_card {
+  position: relative;
+  height: 300px;
+  width: 230px;
+}
+
+.about_card .boxshadow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 1px solid red;
+  transform: scale(0.8);
+  box-shadow: rgb(255, 0, 0) 0px 30px 70px 0px;
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.about_card .main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: red;
+  background: linear-gradient(0deg, rgb(62, 0, 0) 0%, rgb(255, 0, 0) 60%, rgb(62, 0, 0) 100%);
+  position: relative;
+  -webkit-clip-path: polygon(0 40px, 40px 0, calc(100% - 40px) 0, 100% 40px, 100% calc(100% - 40px), calc(100% - 40px) 100%, 40px 100%, 0 calc(100% - 40px));
+  clip-path: polygon(0 40px, 40px 0, calc(100% - 40px) 0, 100% 40px, 100% calc(100% - 40px), calc(100% - 40px) 100%, 40px 100%, 0 calc(100% - 40px));
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 40px, 100% calc(100% - 40px), calc(100% - 40px) 100%, 40px 100%, 0 calc(100% - 40px));
+  clip-path: polygon(0 0, 100% 0, 100% 40px, 100% calc(100% - 40px), calc(100% - 40px) 100%, 40px 100%, 0 calc(100% - 40px));
+  box-shadow: rgb(255, 0, 0) 0px 7px 29px 0px;
+  transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.about_card .main .top {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  z-index: 2;
+  border-top: 115px solid black;
+  border-left: 115px solid transparent;
+  border-right: 115px solid transparent;
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.about_card .main .side {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transform: translateX(-50%);
+  height: 101%;
+  background: black;
+  -webkit-clip-path: polygon(0% 0%, 50% 0, 95% 45%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 50% 0, 95% 45%, 100% 100%, 0% 100%);
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 1s;
+}
+
+.about_card .main .left {
+  left: 0;
+}
+
+.about_card .main .right {
+  right: 0;
+  transform: translateX(50%) scale(-1, 1);
+}
+
+.about_card .main .title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 90px;
+  font-weight: bold;
+  font-size: 25px;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.2s ease-out 0s;
+}
+
+.about_card .main .button-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about_card .main .button-container .button {
+  position: absolute;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 81% 100%, 21% 100%);
+  clip-path: polygon(0 0, 100% 0, 81% 100%, 21% 100%);
+  background: black;
+  border: none;
+  color: white;
+  display: grid;
+  place-content: center;
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.about_card .main .button-container .button .svg {
+  width: 15px;
+  transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.about_card .main .button-container .button:nth-child(1) {
+  bottom: 300px;
+  transition-delay: 0.4s;
+}
+
+.about_card .main .button-container .button:nth-child(2) {
+  bottom: 300px;
+  transition-delay: 0.6s;
+}
+
+.about_card .main .button-container .button:nth-child(3) {
+  bottom: 300px;
+  transition-delay: 0.8s;
+}
+
+.about_card .main .button-container .button:hover .svg {
+  transform: scale(1.2);
+}
+
+.about_card .main .button-container .button:active .svg {
+  transform: scale(0.7);
+}
+
+.about_card:hover .main {
+  transform: scale(1.1);
+}
+
+.about_card:hover .main .top {
+  top: -50px;
+}
+
+.about_card:hover .main .left {
+  left: -50px;
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.1s;
+}
+
+.about_card:hover .main .right {
+  right: -50px;
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.1s;
+}
+
+.about_card:hover .main .title {
+  opacity: 1;
+  transition: all 0.2s ease-out 1.3s;
+}
+
+.about_card:hover .main .button-container .button:nth-child(1) {
+  bottom: 80px;
+  transition-delay: 0.8s;
+}
+
+.about_card:hover .main .button-container .button:nth-child(2) {
+  bottom: 40px;
+  transition-delay: 0.6s;
+}
+
+.about_card:hover .main .button-container .button:nth-child(3) {
+  bottom: 0;
+  transition-delay: 0.4s;
+}
+
